@@ -13,6 +13,33 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="container-fluid w-100 h-100 m-0 p-0">
+    <header class="container-fluid border-2 border-bottom">
+      <hgroup class="row justify-content-between pt-2 text-center">
+        <div class="col-12 col-sm-4 my-2">
+          <h1>Bienvenido</h1>
+        </div>
+        <div class="col-12 col-sm-4 m-2">
+          <button class="btn btn-success" id="cargar">Cargar Informaci&oacute;n</button>
+        </div>
+      </hgroup>
+    </header>
+    <main class="container-fluid">
+      <section id="theader">
+        <div class="row text-center">
+          <div class="col-1 d-none d-sm-block border">ID</div>
+          <div class="col-3 d-none d-sm-block border">Foto</div>
+          <div class="col-4 col-sm-2 border">Nombre</div>
+          <div class="col-4 col-sm-2 border">Apellido</div>
+          <div class="col-4 col-sm-4 border">Correo</div>
+        </div>
+      </section>
+      <section id="tcontent"></section>
+    </main>
+    <footer class="container-fluid"></footer>
+  </div>
+  <!-- PARTE LOGICA SCRIPT -->
   <script src="./js/bootstrap.bundle.min.js"></script>
   <script src="./script.js"></script>
 </body>
