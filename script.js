@@ -1,6 +1,6 @@
 // FUNCIONES
 /**
- * 
+ * Funcion que captura la informacion de un sitio web y manda informacion para que el navegador la interprete
  * @param {'string'} url Dirección de la ruta a la cual se le van a obtener los datos
  * @returns Retorna un resultado asincrono con los datos formato JSON obtenidos del url consultado
  */
@@ -8,10 +8,8 @@ function solicitarDatos(url){
   return fetch(url)
   .then(respuesta=>respuesta.json())
   .then(cuerpo=>{
-    console.log(cuerpo);
     if(cuerpo && !tcontent.hasChildNodes()){
       const {data} = cuerpo;
-      console.log(data);
       if(data){
         construccionTabla(data);
         asignarLocalStorage(data);
@@ -20,7 +18,10 @@ function solicitarDatos(url){
   })
   .catch(error => console.log(error))
 }
-
+/**
+ * Funcion que permite asignar valores al Local Storage
+ * @param {'array'} data Arreglo de datos a base del url consultado
+ */
 function asignarLocalStorage(data){
   let localData = {
     data,
@@ -28,16 +29,21 @@ function asignarLocalStorage(data){
   }
   localStorage.setItem("localData", JSON.stringify(localData));
 }
-
+/**
+ * Funcion que permite obtener informacion dentro del Local Storage
+ */
 function solicitarLocalStorage(){
   const local = JSON.parse(localStorage.getItem("localData"));
-  construccionTabla(local.data);
+  if(!tcontent.hasChildNodes()){
+    construccionTabla(local.data);
+  }
 }
-
-// Funcion que agrega el contenido de la tabla segun el numero de datos recibido
+/**
+ * Funcion que permite construir el contenido de la tabla segun la cantidad de datos recibidos
+ * @param {'array'} arregloDeDatos Obtiene un arreglo de objetos con informacion cuyas propiedades deben ser id, avatar[URL], first_name, last_name y email
+ */
 function construccionTabla(arregloDeDatos){
   arregloDeDatos.forEach(persona => {
-    console.log(persona);
     // Nuevos elementos
     const nuevaFila = document.createElement("div");
     const idCol = document.createElement("div"); 
@@ -70,7 +76,6 @@ function construccionTabla(arregloDeDatos){
     tcontent.appendChild(nuevaFila);
   });
 }
-
 
 // LLAMADO DE LOS ELEMENTOS DEL DOM
 const btn = document.getElementById("cargar");
