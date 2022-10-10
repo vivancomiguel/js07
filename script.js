@@ -4,12 +4,12 @@
  * @param {'string'} url Dirección de la ruta a la cual se le van a obtener los datos
  * @returns Retorna un resultado asincrono con los datos formato JSON obtenidos del url consultado
  */
- function solicitarDatos(url){
+function solicitarDatos(url){
   return fetch(url)
   .then(respuesta=>respuesta.json())
   .then(cuerpo=>{
-    console.log(cuerpo)
-    if(cuerpo){
+    console.log(cuerpo);
+    if(cuerpo && !tcontent.hasChildNodes()){
       const {data} = cuerpo;
       console.log(data);
       if(data){
@@ -24,12 +24,12 @@
           const correoCol = document.createElement("div");
           const foto = document.createElement("img");
           // Asignacion de atributos
-          nuevaFila.setAttribute("class","row text-center");
+          nuevaFila.setAttribute("class","row text-center align-items-center py-2");
           idCol.setAttribute("class","col-1 d-none d-sm-block");
           fotoCol.setAttribute("class","col-3 d-none d-sm-block");
-          nombreCol.setAttribute("class","col-4 col-sm-2");
-          apellidoCol.setAttribute("class","col-4 col-sm-2");
-          correoCol.setAttribute("class","col-4 col-sm-4");
+          nombreCol.setAttribute("class","col-4 col-sm-2 text-truncate");
+          apellidoCol.setAttribute("class","col-3 col-sm-2 text-truncate");
+          correoCol.setAttribute("class","col-5 col-sm-4 text-truncate");
           foto.setAttribute("class","rounded-circle");
           foto.setAttribute("src",persona.avatar);
           // Asignacion de valores
@@ -91,5 +91,5 @@ const tcontent = document.getElementById("tcontent");
 // EVENT LISTENERS
 btn.addEventListener('click', (event)=>{
   // solicitarDatos("https://reqres.in/api/users?delay=3");
-  solicitarDatos("https://reqres.in/api/users");
+  solicitarDatos("https://reqres.in/api/users?delay=3");
 })

@@ -14,8 +14,8 @@
 </head>
 <body>
   <!-- CONTENEDOR PRINCIPAL -->
-  <div class="container-fluid w-100 h-100 m-0 p-0">
-    <header class="container-fluid border-2 border-bottom">
+  <div class="container-fluid w-100 h-100 m-0 p-0 bg-secondary">
+    <header class="container-fluid border-2 border-bottom bg-light">
       <hgroup class="row justify-content-between pt-2 text-center">
         <div class="col-12 col-sm-4 my-2">
           <h1>Bienvenido</h1>
@@ -25,19 +25,18 @@
         </div>
       </hgroup>
     </header>
-    <main class="container-fluid">
+    <main class="container-fluid border-2 border-bottom bg-light">
       <section id="theader">
-        <div class="row text-center">
-          <div class="col-1 d-none d-sm-block border">ID</div>
-          <div class="col-3 d-none d-sm-block border">Foto</div>
-          <div class="col-4 col-sm-2 border">Nombre</div>
-          <div class="col-4 col-sm-2 border">Apellido</div>
-          <div class="col-4 col-sm-4 border">Correo</div>
+        <div class="row text-center border-2 border-bottom">
+          <div class="col-1 d-none d-sm-block text-truncate"><strong>ID</strong></div>
+          <div class="col-3 d-none d-sm-block"><strong>Foto</strong></div>
+          <div class="col-4 col-sm-2 text-truncate"><strong>Nombre</strong></div>
+          <div class="col-3 col-sm-2 text-truncate"><strong>Apellido</strong></div>
+          <div class="col-5 col-sm-4 text-truncate"><strong>Correo</strong></div>
         </div>
       </section>
       <section id="tcontent"></section>
     </main>
-    <footer class="container-fluid"></footer>
   </div>
   <!-- PARTE LOGICA SCRIPT -->
   <script src="./js/bootstrap.bundle.min.js"></script>
